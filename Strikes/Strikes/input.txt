@@ -1,0 +1,8 @@
+﻿1 nick 10
+1 smith 8
+1 smith 2
+2 nick 10
+2 smith 10
+3 nick 10
+3 smith 4
+3 smith 6

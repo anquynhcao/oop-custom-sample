@@ -1,0 +1,21 @@
+﻿<Properties StartupConfiguration="{F3FDFF49-52B6-4B5E-A062-2C42449156EA}|Default" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.ItemProperties.AAAA PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="AAAA/Program.cs">
+    <Files>
+      <File FileName="AAAA/Program.cs" Line="13" Column="11" />
+      <File FileName="AAAA/Infile.cs" />
+      <File FileName="AAAA/input.txt" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
