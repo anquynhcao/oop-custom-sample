@@ -6,9 +6,9 @@ namespace Strikes
 
 	public class Input
 	{
-		int round;
-		string name;
-		int score;
+		public int round;
+		public string name;
+		public int score;
 
 		Input(int round, string name, int score)
 		{
@@ -17,8 +17,9 @@ namespace Strikes
 			this.score = score;
 
 		}
+		
 
-		static void Read (ref Infile.Status st, ref Input e, ref TextFileReader x)
+		public static void Read (ref Infile.Status st, ref Input e, ref TextFileReader x)
 		{
 			e = new Input(0, "", 0);
 			x.ReadInt(out e.round);
@@ -37,8 +38,8 @@ namespace Strikes
 
 	public class Output
 	{
-		int round;
-		bool strike;
+		public int round;
+		public bool strike;
 
 
 	}
@@ -58,6 +59,38 @@ namespace Strikes
 		{
 			x = new TextFileReader(filename);
 			curr = new Output();
+		}
+
+		public void First()
+		{
+			Input.Read(ref st, ref e, ref x);
+			Next();
+		}
+		public Output Current()
+		{
+			return curr;
+		}
+
+		public bool End()
+		{
+			return end;
+		}
+
+		public void Next()
+		{
+			end = (st == Status.abnorm);
+			if (!end)
+			{
+				curr.round = e.round;
+				curr.strike = false;
+				while (e.round == curr.round && st == Status.norm)
+				{
+					curr.strike = curr.strike || e.score == 10;
+				}
+
+				Input.Read(ref st, ref e, ref x);
+			}
+
 		}
 	}
 
