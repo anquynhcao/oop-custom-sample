@@ -1,0 +1,109 @@
+
+
+
+
+
+enor.cs 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TextFile;
+
+namespace penMidterm
+{
+    internal class Enor
+    {
+        /*Parker red 40
+        Parker blue 70*/
+        public struct Pen
+        {
+            public string name;
+            public string color;
+            public int number;
+        }
+
+        public struct Custom
+        { //Parker 110
+            public string brand;
+            public int total;
+        }
+
+        enum Status
+        {
+            norm, abnorm
+        }
+
+        TextFileReader x;
+        Status st;
+        Custom curr;
+        Pen pen;
+        bool end;
+
+        public Enor (string name)
+        {
+            x = new TextFileReader(name);
+        }
+
+        public void Read()
+        {
+            pen=new Pen();
+            bool l = x.ReadString(out pen.name);
+            l = l && x.ReadString(out pen.color);
+            l = l && x.ReadInt(out pen.number);
+            st = l ? Status.norm : Status.abnorm;
+
+        }
+
+        public void First()
+        {
+            Read();
+            Next();
+        }
+        public Custom Current() { return curr; }
+        public bool End() { return end; }
+
+        public void Next()
+        {
+            end = st == Status.abnorm;
+            curr.brand = pen.name;
+            curr.total = 0;
+
+            if(!end)
+            {
+                while(curr.brand==pen.name)
+                {
+                    curr.total += pen.number;
+                    Read();
+                }
+            }
+
+        }
+
+
+    }
+}
+
+
+program.cs
+namespace penMidterm
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Enor t = new Enor("input.txt");
+
+            t.First();
+            while(!t.End())
+            {
+                if(t.Current().total>70)
+                {
+                    Console.WriteLine(t.Current().brand);
+                }
+                t.Next();
+            }
+        }
+    }
+}
