@@ -1,0 +1,6 @@
+﻿Parker red 40
+Parker blue 70
+Parker green 20
+Stabilo blue 5
+Stabilo orange 60
+Rando red 4

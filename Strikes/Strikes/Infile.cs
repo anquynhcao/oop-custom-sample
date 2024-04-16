@@ -19,6 +19,9 @@ namespace Strikes
 		}
 		
 
+
+		
+
 		public static void Read (ref Infile.Status st, ref Input e, ref TextFileReader x)
 		{
 			e = new Input(0,"", 0);
