@@ -39,7 +39,7 @@ namespace Strikes
 	public class Output
 	{
 		public int round;
-		public bool strike;
+		public int strike;
 
 
 	}
@@ -63,9 +63,14 @@ namespace Strikes
 
 		public void First()
 		{
-			Input.Read(ref st, ref e, ref x);
+			
+
+            Input.Read(ref st, ref e, ref x);
+			
+			
 			Next();
-		}
+            
+        }
 		public Output Current()
 		{
 			return curr;
@@ -81,14 +86,20 @@ namespace Strikes
 			end = (st == Status.abnorm);
 			if (!end)
 			{
+				
 				curr.round = e.round;
-				curr.strike = false;
-				while (e.round == curr.round && st == Status.norm)
+				curr.strike = 0;
+                
+                while (e.round == curr.round && st == Status.norm)
 				{
-					curr.strike = (curr.strike || e.score == 10);
-				}
-				Console.WriteLine(curr.strike);
-				Input.Read(ref st, ref e, ref x);
+					if (e.score == 10)
+					{
+                        curr.strike = 1;
+					}
+                    Input.Read(ref st, ref e, ref x);
+                }
+				
+				
 			}
 
 		}

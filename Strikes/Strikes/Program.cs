@@ -20,20 +20,28 @@ class Program
                 Infile t = new Infile(name);
                 
                 t.First();
-                bool strikes = true;
+               
+                int strikes = 0;
+                int round = 0; 
+                //bool strikes = true;
                 while (!t.End())
                 {
+
+                    strikes = strikes + t.Current().strike;
                     
-                    strikes = (strikes && t.Current().strike);
+                    if (t.Current().round > round)
+                    {
+                        round = t.Current().round;
+                    }
                     t.Next();
                 }
-                if (strikes)
+                if (round > strikes)
                 {
-                    Console.WriteLine("yes");
+                    Console.WriteLine("no");
                 }
                 else
                 {
-                    Console.WriteLine("no");
+                    Console.WriteLine("yes");
                 }
 
 

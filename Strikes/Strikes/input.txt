@@ -3,4 +3,4 @@
 2 nik 10
 2 alex 4
 3 nik 4
-3 nik 10
+3 nik 6
