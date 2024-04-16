@@ -1,6 +1,6 @@
 ﻿using System;
 using TextFile;
-
+//determine if every round has at least 1 strike = a 10 score. if yes return "yes", no return "no". inputfile included
 namespace Strikes
 {
 
@@ -21,7 +21,7 @@ namespace Strikes
 
 		public static void Read (ref Infile.Status st, ref Input e, ref TextFileReader x)
 		{
-			e = new Input(0, "", 0);
+			e = new Input(0,"", 0);
 			x.ReadInt(out e.round);
 			x.ReadString(out e.name);
 			bool l = x.ReadInt(out e.score);
@@ -85,9 +85,9 @@ namespace Strikes
 				curr.strike = false;
 				while (e.round == curr.round && st == Status.norm)
 				{
-					curr.strike = curr.strike || e.score == 10;
+					curr.strike = (curr.strike || e.score == 10);
 				}
-
+				Console.WriteLine(curr.strike);
 				Input.Read(ref st, ref e, ref x);
 			}
 
